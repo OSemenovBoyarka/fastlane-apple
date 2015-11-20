@@ -1,4 +1,15 @@
-lane :ensure_code_clean do
+	desc "Commits changelog changes to git, use this after 'copy_changelog' lane"
+	lane :commit_changelog do 
+# 		TODO extract changelog commit to another action with nice output 
+# 		ensure we have not staged anything except changelog
+		sh("git reset HEAD")
+# 		adding changed files, we need to add uplevel because this code is executed inside 'fastlane' folder
+		sh("git add ../CHANGELOG.md")
+		sh("git add ../CHANGELOG_CURRENT.md")
+		sh("git commit -m \"Changelog update\"")
+	end  
+	
+	lane :ensure_code_clean do
 		ensure_no_debug_code(text: "NSLog",
     		                 path: "./lib",
         		        extension: "m")
