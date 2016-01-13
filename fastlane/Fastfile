@@ -24,7 +24,7 @@
  			message: options[:commit_message],                    # create a commit with a custom message
  		 	xcodeproj: options[:xcodeproj], # optional, if you have multiple Xcode project files, you must specify your main project here
 		)
-		add_git_tag
+		#git should be added now manually just after build
 		push_to_git_remote
 	end
 	
