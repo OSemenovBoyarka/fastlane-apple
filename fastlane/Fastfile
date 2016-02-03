@@ -20,12 +20,13 @@
 	
 	lane :push_version_changes do |options|
   	  	commit_version_bump(
-  	  		force: !(is_ci),
+  	  		force: true,
  			message: options[:commit_message],                    # create a commit with a custom message
  		 	xcodeproj: options[:xcodeproj], # optional, if you have multiple Xcode project files, you must specify your main project here
 		)
-		#git should be added now manually just after build
-		push_to_git_remote
+		#ci server will push changes by itself
+		push_to_git_remote unless is_ci
+		end	
 	end
 	
 	desc "Reads current version changelog from file CHANGELOG_CURRENT.md and puts it to CHANGELOG.md as new section for current version"
