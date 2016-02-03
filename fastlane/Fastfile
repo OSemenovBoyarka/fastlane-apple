@@ -26,7 +26,6 @@
 		)
 		#ci server will push changes by itself
 		push_to_git_remote unless is_ci
-		end	
 	end
 	
 	desc "Reads current version changelog from file CHANGELOG_CURRENT.md and puts it to CHANGELOG.md as new section for current version"
