@@ -24,8 +24,7 @@
  			message: options[:commit_message],                    # create a commit with a custom message
  		 	xcodeproj: options[:xcodeproj], # optional, if you have multiple Xcode project files, you must specify your main project here
 		)
-		#ci server will push changes by itself
-		push_to_git_remote unless is_ci
+		push_to_git_remote
 	end
 	
 	desc "Reads current version changelog from file CHANGELOG_CURRENT.md and puts it to CHANGELOG.md as new section for current version"
