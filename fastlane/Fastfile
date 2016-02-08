@@ -24,7 +24,9 @@
  			message: options[:commit_message],                    # create a commit with a custom message
  		 	xcodeproj: options[:xcodeproj], # optional, if you have multiple Xcode project files, you must specify your main project here
 		)
-		push_to_git_remote
+		push_to_git_remote(
+			local_branch: options[:git_branch]
+		)
 	end
 	
 	desc "Reads current version changelog from file CHANGELOG_CURRENT.md and puts it to CHANGELOG.md as new section for current version"
