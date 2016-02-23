@@ -6,7 +6,7 @@
 # 		adding changed files, we need to add uplevel because this code is executed inside 'fastlane' folder
 		sh("git add ../CHANGELOG.md")
 		sh("git add ../CHANGELOG_CURRENT.md")
-		sh("git commit -m \"Changelog update\"")
+		sh("git commit -m \"Changelog update [ci skip]\"")
 	end  
 	
 	lane :ensure_code_clean do
