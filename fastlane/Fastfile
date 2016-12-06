@@ -31,9 +31,11 @@
 	
 	desc "Reads current version changelog from file CHANGELOG_CURRENT.md and puts it to CHANGELOG.md as new section for current version"
 	desc "Also return current changelog contents"
-	lane :copy_changelog do 
+	lane :copy_changelog do |options|
+		version = options[:version]
+		version = "#{get_version_number} (#{get_build_number})" unless version.to_s != ""
 		update_changelog(
-				version: "#{get_version_number} (#{get_build_number})"
+				version: version
 			)				
 		lane_context[SharedValues::UPDATE_CHANGELOG_CURRENT]
 	end
